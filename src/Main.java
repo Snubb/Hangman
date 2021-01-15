@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -7,6 +8,21 @@ public class Main {
     public static void main(String[] args) {
         String word = randomWord();
         int gameOver = 0; //increases by one per wrong letter. Game over if 10.
+        String visibleWord = "_".repeat(word.length());
+        while (gameOver < 10) {
+            String guessWord = "Potat :)";
+            while (true) {
+                guessWord = JOptionPane.showInputDialog("Guess a letter");
+                System.out.println(guessWord.length());
+                if (guessWord.length() > 1){
+                    System.out.println("You can only guess a single letter.");
+                } else {
+                    break;
+                }
+            }
+
+
+        }
     }
 
     private static String randomWord() {
