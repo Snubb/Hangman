@@ -23,11 +23,18 @@ public class Main {
             }
             boolean containsLetter = word.contains(guessWord);
             if (containsLetter) {
-
+                visibleWord = newWord(word, guessWord);
             } else {
                 gameOver++;
             }
         }
+    }
+
+    private static String newWord(String word, String guessWord) {
+        for (int i = 0; i < word.length(); i++) {
+
+        }
+        return null;
     }
 
     private static String randomWord() {
