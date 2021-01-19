@@ -9,3 +9,5 @@ Jag har jobbat på metoden för att byta ut bokstäver i "___" strängen.
 Har gått mindre bra jämfört med det tidigare.
 Största problemet är att .equals inte alls fungerar i newWord() metoden. 
 Vet inte riktigt varför men tänker försöka hitta någon lösning eller alternativ metod.
+POST lektion edit: Har nu fixat det, tror att problemet var att charAt() funktionen anses vara en char och fungerade inte att jämför med en string.
+Nästa lektion så blir det nog lite mer "player friendly" saker för att visa hur det går.
