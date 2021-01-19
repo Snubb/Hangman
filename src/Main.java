@@ -9,38 +9,48 @@ public class Main {
         String word = randomWord().toLowerCase();
         int gameOver = 0; //increases by one per wrong letter. Game over if 10.
         String visibleWord = "_".repeat(word.length());
-        String guessLetter = null;
+        char guessLetter = 'a';
         boolean containsLetter = false;
         System.out.println(word);
 
         while (gameOver < 10) {
-            if (letterCheck(word, visibleWord, guessLetter, containsLetter)) {
-                visibleWord = newWord(word, guessLetter);
+            System.out.println(visibleWord);
+            String guessString = JOptionPane.showInputDialog("Guess a letter").toLowerCase();
+            guessLetter = guessString.charAt(0);
+            if (letterCheck(word, visibleWord, guessLetter, containsLetter, guessString)) {
+                visibleWord = newWord(word, guessLetter, visibleWord);
+                System.out.println("yay");
             } else {
+                System.out.println("nay");
                 gameOver++;
             }
         }
     }
 
-    private static boolean letterCheck(String word, String visibleWord, String guessLetter, boolean containsLetter) {
-        System.out.println(visibleWord);
-        while (true) {
-            guessLetter = JOptionPane.showInputDialog("Guess a letter").toLowerCase();
-            if (guessLetter.length() > 1){
-                System.out.println("You can only guess a single letter.");
-            } else {
-                break;
-            }
-        }
-        containsLetter = word.contains(guessLetter);
+    private static boolean letterCheck(String word, String visibleWord, char guessLetter, boolean containsLetter, String guessString) {
+
+        containsLetter = word.contains(guessString);
         return containsLetter;
     }
 
-    private static String newWord(String word, String guessLetter) {
-        for (int i = 0; i < word.length(); i++) {
+    private static String newWord(String word, char guessLetter, String visibleWord) {
+        String guess = String.valueOf(guessLetter);
+        String wordChar = visibleWord;
+        char[] a = wordChar.toCharArray();
 
+        for (int i = 0; i < word.length(); i++) {
+            System.out.println("Guess:" + guess);
+            System.out.println("guessLetter:" + guessLetter);
+            if (guess.equals(word.charAt(i))) {
+                a[i] = guessLetter;
+                System.out.println("yep");
+            } else {
+                System.out.println("nep");
+            }
         }
-        return null;
+        wordChar = String.valueOf(a);
+        System.out.println(wordChar);
+        return wordChar;
     }
 
     private static String randomWord() {
