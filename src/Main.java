@@ -9,28 +9,34 @@ public class Main {
         String word = randomWord().toLowerCase();
         int gameOver = 0; //increases by one per wrong letter. Game over if 10.
         String visibleWord = "_".repeat(word.length());
+        String guessLetter = null;
+        boolean containsLetter = false;
+        System.out.println(word);
 
         while (gameOver < 10) {
-            System.out.println(visibleWord);
-            String guessWord;
-            while (true) {
-                guessWord = JOptionPane.showInputDialog("Guess a letter").toLowerCase();
-                if (guessWord.length() > 1){
-                    System.out.println("You can only guess a single letter.");
-                } else {
-                    break;
-                }
-            }
-            boolean containsLetter = word.contains(guessWord);
-            if (containsLetter) {
-                visibleWord = newWord(word, guessWord);
+            if (letterCheck(word, visibleWord, guessLetter, containsLetter)) {
+                visibleWord = newWord(word, guessLetter);
             } else {
                 gameOver++;
             }
         }
     }
 
-    private static String newWord(String word, String guessWord) {
+    private static boolean letterCheck(String word, String visibleWord, String guessLetter, boolean containsLetter) {
+        System.out.println(visibleWord);
+        while (true) {
+            guessLetter = JOptionPane.showInputDialog("Guess a letter").toLowerCase();
+            if (guessLetter.length() > 1){
+                System.out.println("You can only guess a single letter.");
+            } else {
+                break;
+            }
+        }
+        containsLetter = word.contains(guessLetter);
+        return containsLetter;
+    }
+
+    private static String newWord(String word, String guessLetter) {
         for (int i = 0; i < word.length(); i++) {
 
         }
@@ -40,7 +46,7 @@ public class Main {
     private static String randomWord() {
         Scanner in = null;
         try {
-            in = new Scanner(new File("wordList"));
+            in = new Scanner(new File("wordList"));//TODO: Make actual words instead of just random letters.
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
