@@ -41,7 +41,8 @@ public class Main {
         for (int i = 0; i < word.length(); i++) {
             System.out.println("Guess:" + guess);
             System.out.println("guessLetter:" + guessLetter);
-            if (guess.equals(word.charAt(i))) {
+            System.out.println(word.charAt(0));
+            if (guess.equals(Character.toString(word.charAt(i)))) {
                 a[i] = guessLetter;
                 System.out.println("yep");
             } else {
