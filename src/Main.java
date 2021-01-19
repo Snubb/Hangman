@@ -39,18 +39,11 @@ public class Main {
         char[] a = wordChar.toCharArray();
 
         for (int i = 0; i < word.length(); i++) {
-            System.out.println("Guess:" + guess);
-            System.out.println("guessLetter:" + guessLetter);
-            System.out.println(word.charAt(0));
             if (guess.equals(Character.toString(word.charAt(i)))) {
                 a[i] = guessLetter;
-                System.out.println("yep");
-            } else {
-                System.out.println("nep");
             }
         }
         wordChar = String.valueOf(a);
-        System.out.println(wordChar);
         return wordChar;
     }
 
