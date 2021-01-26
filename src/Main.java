@@ -7,12 +7,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static void main(String[] args) {
         String word = randomWord().toLowerCase();
-        int gameOver = 0; //increases by one per wrong letter. Game over if 10.
+        int gameOver = 0; //increases by one per wrong letter. Game over if 9.
         String visibleWord = "_".repeat(word.length());
         char guessLetter;
         System.out.println(word); //TODO: only for testing, remove later.
 
-        while (gameOver < 10) {
+        while (gameOver < 9) {
             if (visibleWord.equals(word)) {
                 break; //breaks out of loop if player has won.
             }
