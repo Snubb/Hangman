@@ -11,3 +11,7 @@ Största problemet är att .equals inte alls fungerar i newWord() metoden.
 Vet inte riktigt varför men tänker försöka hitta någon lösning eller alternativ metod.
 POST lektion edit: Har nu fixat det, tror att problemet var att charAt() funktionen anses vara en char och fungerade inte att jämför med en string.
 Nästa lektion så blir det nog lite mer "player friendly" saker för att visa hur det går.
+
+###2021-01-26
+Jag har ritat massa ASCII art. Försökte även visa en jpg eller liknande direkt men blev lite 
+komplicerat så jag stannar på ASCII art. Nästa lektion tänker jag bara fortsätta med det.
