@@ -7,16 +7,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static void main(String[] args) {
         String word = randomWord().toLowerCase();
-        int gameOver = 0; //increases by one per wrong letter. Game over if 9.
-        String visibleWord = "_".repeat(word.length());
+        int gameOver = 0; //increases by one per wrong letter, game over if 9
+        String visibleWord = "_".repeat(word.length()); //the visible word showed to the player
         char guessLetter;
         System.out.println(word); //TODO: only for testing, remove later.
 
         while (gameOver < 9) {
             if (visibleWord.equals(word)) {
-                break; //breaks out of loop if player has won.
+                break; //breaks out of loop if player has won
             }
-            System.out.println(visibleWord);
+            System.out.println(visibleWord); //show the player their progress.
             String guessString = JOptionPane.showInputDialog("Guess a letter").toLowerCase();
             guessLetter = guessString.charAt(0);
             if (word.contains(guessString)) {
@@ -27,6 +27,7 @@ public class Main {
                 gameOver++;
             }
         }
+        //checks if it's a win or a loss
         if (visibleWord.equals(word)) {
             System.out.println("Congratulations! You have won.");
         } else {
@@ -34,6 +35,7 @@ public class Main {
         }
     }
 
+    //replaces visibleWord with a new one where the guessed letters are revealed.
     private static String newWord(String word, char guessLetter, String visibleWord) {
         String guess = String.valueOf(guessLetter);
         String wordChar = visibleWord;
@@ -48,6 +50,7 @@ public class Main {
         return wordChar;
     }
 
+    //selects a random word from a list of 50
     private static String randomWord() {
         Scanner in = null;
         try {
@@ -65,7 +68,6 @@ public class Main {
         }
 
         int randomNum = ThreadLocalRandom.current().nextInt(0, wordList.length + 1);
-
 
         return wordList[randomNum];
     }
