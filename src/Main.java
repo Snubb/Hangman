@@ -9,15 +9,17 @@ public class Main {
         String word = randomWord().toLowerCase();
         int gameOver = 0; //increases by one per wrong letter. Game over if 10.
         String visibleWord = "_".repeat(word.length());
-        char guessLetter = 'a';
-        boolean containsLetter = false;
-        System.out.println(word);
+        char guessLetter;
+        System.out.println(word); //TODO: only for testing, remove later.
 
         while (gameOver < 10) {
+            if (visibleWord.equals(word)) {
+                break; //breaks out of loop if player has won.
+            }
             System.out.println(visibleWord);
             String guessString = JOptionPane.showInputDialog("Guess a letter").toLowerCase();
             guessLetter = guessString.charAt(0);
-            if (letterCheck(word, visibleWord, guessLetter, containsLetter, guessString)) {
+            if (word.contains(guessString)) {
                 visibleWord = newWord(word, guessLetter, visibleWord);
                 System.out.println("yay");
             } else {
@@ -25,12 +27,11 @@ public class Main {
                 gameOver++;
             }
         }
-    }
-
-    private static boolean letterCheck(String word, String visibleWord, char guessLetter, boolean containsLetter, String guessString) {
-
-        containsLetter = word.contains(guessString);
-        return containsLetter;
+        if (visibleWord.equals(word)) {
+            System.out.println("Congratulations! You have won.");
+        } else {
+            System.out.println("You have lost, coward.");
+        }
     }
 
     private static String newWord(String word, char guessLetter, String visibleWord) {
