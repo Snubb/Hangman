@@ -12,26 +12,37 @@ public class Main {
         char guessLetter;
         System.out.println(word); //TODO: only for testing, remove later.
 
+        //May look completely fucked but it's the hanging man I promise.
+        String[] image = {"----------\n" + "----------\n" + "----------\n" + "----------\n" + "----------\n" + "--___-----\n" + "_/___\\____\n",
+                          "----------\n" + "---|------\n" + "---|------\n" + "---|------\n" + "---|------\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|------\n" + "---|------\n" + "---|------\n" + "---|------\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|---|--\n" + "---|------\n" + "---|------\n" + "---|------\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|---|--\n" + "---|---O--\n" + "---|------\n" + "---|------\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|---|--\n" + "---|---O--\n" + "---|---|--\n" + "---|------\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|---|--\n" + "---|---O--\n" + "---|--/|--\n" + "---|------\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|---|--\n" + "---|---O--\n" + "---|--/|\\-\n" + "---|------\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|---|--\n" + "---|---O--\n" + "---|--/|\\-\n" + "---|--/---\n" + "--_|_-----\n" + "_/___\\____\n",
+                          "---_____--\n" + "---|---|--\n" + "---|---O--\n" + "---|--/|\\-\n" + "---|--/-\\-\n" + "--_|_-----\n" + "_/___\\____\n"};
+
         while (gameOver < 9) {
             if (visibleWord.equals(word)) {
                 break; //breaks out of loop if player has won
             }
-            System.out.println(visibleWord); //show the player their progress.
+            System.out.println(image[gameOver] + " \n" + visibleWord + "\n"); //show the player their progress.
             String guessString = JOptionPane.showInputDialog("Guess a letter").toLowerCase();
             guessLetter = guessString.charAt(0);
             if (word.contains(guessString)) {
                 visibleWord = newWord(word, guessLetter, visibleWord);
-                System.out.println("yay");
             } else {
-                System.out.println("nay");
+                System.out.println("Try again");
                 gameOver++;
             }
         }
         //checks if it's a win or a loss
         if (visibleWord.equals(word)) {
-            System.out.println("Congratulations! You have won.");
+            System.out.println("Congratulations! You have won.\nThe word was " + word);
         } else {
-            System.out.println("You have lost, coward.");
+            System.out.println(image[gameOver] + "\n\nYou killed him. This is your fault.");
         }
     }
 
