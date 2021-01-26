@@ -10,7 +10,6 @@ public class Main {
         int gameOver = 0; //increases by one per wrong letter, game over if 9
         String visibleWord = "_".repeat(word.length()); //the visible word showed to the player
         char guessLetter;
-        System.out.println(word); //TODO: only for testing, remove later.
 
         //May look completely fucked but it's the hanging man I promise.
         String[] image = {"----------\n" + "----------\n" + "----------\n" + "----------\n" + "----------\n" + "--___-----\n" + "_/___\\____\n",
@@ -42,7 +41,7 @@ public class Main {
         if (visibleWord.equals(word)) {
             System.out.println("Congratulations! You have won.\nThe word was " + word);
         } else {
-            System.out.println(image[gameOver] + "\n\nYou killed him. This is your fault.");
+            System.out.println(image[gameOver] + "\n\nYou killed him. This is your fault.\nThe word was " + word);
         }
     }
 
@@ -65,7 +64,7 @@ public class Main {
     private static String randomWord() {
         Scanner in = null;
         try {
-            in = new Scanner(new File("wordList"));//TODO: Make actual words instead of just random letters.
+            in = new Scanner(new File("wordList"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
