@@ -19,4 +19,7 @@ komplicerat så jag stannar på ASCII art. Nästa lektion tänker jag bara forts
 ###2021-01-29
 Programet är helt klart nu så finns inte alldeles för mycket att göra. 
 La till en funktion som visade bokstäverna som spelaren gissat men annars inte mycket.
-Om någonting så kommer jag fina till koden lite gran nästa lektion med potentiellt fler metoder eller liknande.~~~~
+Om någonting så kommer jag fina till koden lite gran nästa lektion med potentiellt fler metoder eller liknande.
+
+###2021-02-02
+Gjorde bara massa små ändringar för att det ska se bättre ut. Bl.a så görs det mesta av spelet i JOptionPane nu.(fixar resten hemma sen)
