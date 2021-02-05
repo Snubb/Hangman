@@ -33,16 +33,17 @@ public class Main {
             guessLetter = guessString.charAt(0);
             if (word.contains(guessString)) { //checks if the word contains the guessed letter.
                 visibleWord = newWord(word, guessLetter, visibleWord);
-            } else {
-                gameOver++;
+            } else if (!guessedLetters.toString().contains(guessString)) {
                 guessedLetters.append(guessLetter).append(" "); //adds the letter to the list of guessed letters.
+                gameOver++;
+
             }
         }
         //checks if it's a win or a loss
         if (!visibleWord.contains("_")) {
-            JOptionPane.showMessageDialog(null, "You have won. Congratulations!\nThe word was \"" + word + "\"");
+            JOptionPane.showMessageDialog(null, "You have won. Congratulations!\nThe word was \"" + word + "\".");
         } else {
-            JOptionPane.showMessageDialog(null, "You have failed.\n" + image[10] + "\nYou killed him. This is your fault.\n\n" + "The word was \"" + word + "\"");
+            JOptionPane.showMessageDialog(null, "You have failed.\n" + image[10] + "\nYou killed him. This is your fault.\n\n" + "The word was \"" + word + "\".");
         }
     }
 
